@@ -1,4 +1,4 @@
-from airflow import DAG
+4.from airflow import DAG
 from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
 import boto3
@@ -12,7 +12,7 @@ default_args = {
 
 # Define the DAG
 dag = DAG(
-    "15dag",
+    "3dag",
     default_args=default_args,
     description="Execute a Python script stored in S3",
     schedule_interval=None,
@@ -23,7 +23,7 @@ dag = DAG(
 # Step 1: Execute the Python script with input
 execute_script_task = BashOperator(
     task_id="execute_script",
-    bash_command='echo "Starting sleep task"; sleep 500; echo "Finished sleep task"',
+    bash_command='echo "Starting sleep task"; sleep 600; echo "Finished sleep task"',
     dag=dag,
 )
 
